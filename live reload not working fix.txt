@@ -1,0 +1,5 @@
+save the changed file
+build the project again
+reload browser
+
+LiveReload extension no longer connects to devtools since 2.5.2 (so no automatic reload): https://github.com/spring-projects/spring-boot/issues/27147
