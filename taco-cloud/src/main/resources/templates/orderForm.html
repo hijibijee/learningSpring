@@ -3,7 +3,7 @@
       xmlns:th="http:/ /www.thymeleaf.org">
     <head>
         <title>Taco Cloud</title>
-        <link rel="stylesheet" th:href="@{/styles.css}"/>
+        <link rel="stylesheet" th:href="@{/orderForm.css}"/>
     </head>
 
     <body>
@@ -13,7 +13,7 @@
             th:object="${tacoOrder}"
         >
             <h1>Order your taco creations!</h1>
-            <img th:src="@{/images/TacoCloud.png}"/>
+            <img th:src="@{/images/TacoCloud.jpg}"/>
 
             <h3>Your tacos in this order:</h3>
             <a id="another" th:href="@{/design}">
