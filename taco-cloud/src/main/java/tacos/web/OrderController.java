@@ -19,6 +19,10 @@ public class OrderController {
         return "orderForm";
     }
 
+    /***
+     * In DesignTacoController second parameter is a model attribute, here session status
+     * How this type id determined on form submission??
+     */
     @PostMapping
     public String processOrder(TacoOrder order, SessionStatus sessionStatus) {
         log.info("Order submitted: {}", order);
