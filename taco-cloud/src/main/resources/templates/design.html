@@ -88,10 +88,21 @@
                 </div>
             </div>
 
+            <div
+                class="validationError"
+                th:if="${#fields.hasErrors('ingredients')}"
+                th:errors="*{ingredients}"
+            >Must Select At Least One Error</div>
+
             <div>
                 <h3>Name your taco creation:</h3>
 
                 <input type="text" th:field="*{name}" />
+                <span
+                    class="validationError"
+                    th:if="${#fields.hasErrors('name')}"
+                    th:errors="*{name}"
+                >Taco Name Error</span>
                 <br/>
 
                 <button>Submit Your Taco</button>
