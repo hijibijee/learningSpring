@@ -2,6 +2,8 @@ package tacos;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
@@ -12,11 +14,16 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@Table // Optional - by default this domain class will be mapped to Taco_Order table, @Table("A_Different_Table") will map it to A_Different_Table
 public class TacoOrder implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @Id
     private Long id;
 
+    /**
+     * Similar to @Table, placedAt will be mapped to placed_at column. We can use @Column("...") to customize.
+     */
     private Date placedAt;
 
     @NotBlank(message = "Delivery name is required")
