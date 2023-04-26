@@ -24,7 +24,7 @@ public class TacoOrder implements Serializable {
     /**
      * Similar to @Table, placedAt will be mapped to placed_at column. We can use @Column("...") to customize.
      */
-    private Date placedAt;
+    private Date placedAt = new Date();
 
     @NotBlank(message = "Delivery name is required")
     private String deliveryName;

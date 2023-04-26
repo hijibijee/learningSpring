@@ -2,3 +2,8 @@ spring:
   datasource:
     generate-unique-name: false
     name: tacocloud
+  jpa:
+    defer-datasource-initialization: true
+
+# defer-datasource-initialization: true enables script-based DataSource initialization to be able to build upon the schema creation performed by Hibernate
+# https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-initialization.using-jpa:~:text=if%20you%20want%20script%2Dbased%20DataSource%20initialization%20to%20be%20able%20to%20build%20upon%20the%20schema%20creation%20performed%20by%20Hibernate%2C%20set%20spring.jpa.defer%2Ddatasource%2Dinitialization%20to%20true

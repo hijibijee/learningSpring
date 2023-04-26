@@ -1,6 +1,7 @@
-delete from Ingredient_Ref;
-delete from Taco;
-delete from Taco_Order;
+--delete from Ingredient_Ref;
+--delete from Taco;
+--delete from Taco_Order;
+-- Hibernate will create tables, I just want to make sure Ingredient table is populated
 
 delete from Ingredient;
 insert into Ingredient (id, name, type)
