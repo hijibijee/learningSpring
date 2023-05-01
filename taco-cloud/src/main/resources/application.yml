@@ -1,6 +1,4 @@
 spring:
-  data:
-    cassandra:
-      keyspace-name: taco_cloud
-      schema-action: recreate
-      local-datacenter: datacenter1
+    mongodb:
+      embedded:
+        version: 4.0.2
