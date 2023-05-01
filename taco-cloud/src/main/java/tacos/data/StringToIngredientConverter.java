@@ -3,7 +3,6 @@ package tacos.data;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import tacos.Ingredient;
-import tacos.IngredientUDT;
 
 import java.util.Optional;
 
