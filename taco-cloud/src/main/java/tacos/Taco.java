@@ -1,5 +1,6 @@
 package tacos;
 
+import com.datastax.oss.driver.api.core.uuid.Uuids;
 import lombok.Data;
 import org.springframework.data.cassandra.core.cql.Ordering;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
@@ -17,7 +18,7 @@ import java.util.UUID;
 @Table("tacos")
 public class Taco {
     @PrimaryKeyColumn(type = PrimaryKeyType.PARTITIONED) // defines the partition key
-    private UUID id;
+    private UUID id = Uuids.timeBased();
 
     @PrimaryKeyColumn(type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING) // defines the clustering key
     private Date createdAt = new Date();

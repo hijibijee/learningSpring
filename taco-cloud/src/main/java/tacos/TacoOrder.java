@@ -1,5 +1,6 @@
 package tacos;
 
+import com.datastax.oss.driver.api.core.uuid.Uuids;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 import org.springframework.data.cassandra.core.mapping.Column;
@@ -21,7 +22,7 @@ public class TacoOrder implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @PrimaryKey
-    private UUID id;
+    private UUID id = Uuids.timeBased();
 
     /**
      * Similar to @Table, placedAt will be mapped to placed_at column. We can use @Column("...") to customize.
@@ -56,7 +57,7 @@ public class TacoOrder implements Serializable {
     @Column("tacos")
     private List<TacoUDT> tacos = new ArrayList<>();
 
-    public void addTaco(TacoUDT taco) {
-        this.tacos.add(taco);
+    public void addTaco(Taco taco) {
+        this.tacos.add(TacoUDRUtils.toTacoUDT(taco));
     }
 }
