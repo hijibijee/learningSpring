@@ -1,20 +1,26 @@
 package tacos;
 
+import com.datastax.oss.driver.api.core.uuid.Uuids;
 import lombok.Data;
+import org.springframework.data.cassandra.core.cql.Ordering;
+import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
+import org.springframework.data.cassandra.core.mapping.Column;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
+import org.springframework.data.cassandra.core.mapping.Table;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Data
-@Entity
+@Table("tacos")
 public class Taco {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @PrimaryKeyColumn(type = PrimaryKeyType.PARTITIONED) // defines the partition key
+    private UUID id = Uuids.timeBased();
 
+    @PrimaryKeyColumn(type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING) // defines the clustering key
     private Date createdAt = new Date();
 
     @NotNull
@@ -23,10 +29,10 @@ public class Taco {
 
     @NotNull
     @Size(min=1, message="You must choose at least 1 ingredient")
-    @ManyToMany
-    private List<Ingredient> ingredients;
+    @Column("ingredients") // Maps the list to the ingredients column
+    private List<IngredientUDT> ingredients;
 
     public void addIngredients(Ingredient ingredient) {
-        ingredients.add(ingredient);
+        ingredients.add(TacoUDRUtils.toIngredientUDT(ingredient));
     }
 }
