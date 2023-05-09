@@ -12,6 +12,8 @@ import tacos.TacoOrder;
 import tacos.data.IngredientRepository;
 
 import javax.validation.Valid;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -59,7 +61,9 @@ public class DesignTacoController {
         Errors errors,
         @ModelAttribute TacoOrder tacoOrder
     ) {
+        log.info("Started processing taco: {}", taco);
         if (errors.hasErrors()) {
+            log.info("Error processing taco: {}", errors);
             return "design";
         }
 

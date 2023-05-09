@@ -1,0 +1,8 @@
+.logout-btn {
+    display: inline-block;
+    position: absolute;
+    padding: 5px;
+    top: 0;
+    right: 0;
+    margin-right: 10px;
+}

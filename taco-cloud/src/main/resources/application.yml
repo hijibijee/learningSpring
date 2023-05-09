@@ -1,4 +1,4 @@
 spring:
-    mongodb:
-      embedded:
-        version: 4.0.2
+  datasource:
+    generate-unique-name: false
+    name: tacocloud

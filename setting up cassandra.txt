@@ -1,8 +1,0 @@
-1. Install docker
-2. Run 'docker network create cassandra-net' in command prompt
-3. Run 'docker run --name my-cassandra --network cassandra-net -p 9042:9042 -d cassandra:latest' in command prompt
-4. Run 'docker run -it --network cassandra-net --rm cassandra cqlsh my-cassandra' to start cassanra cql shell. 
-5. When shell is ready, use 'create keyspace' command like this: 
-cqlsh> create keyspace tacocloud
-   ... with replication={'class':'SimpleStrategy', 'replication_factor':1}
-   ... and durable_writes=true;

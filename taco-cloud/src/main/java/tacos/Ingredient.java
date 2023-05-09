@@ -1,18 +1,24 @@
 package tacos;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
 
 @Data
-@Document(collection="ingredients")
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 public class Ingredient {
     @Id
-    private String id;
-    private String name;
-    private Type type;
+    private final String id;
+
+    private final String name;
+
+    @Enumerated(EnumType.STRING) // To tell hibernate that I will use string type for this enum
+    private final Type type;
 
     public enum Type {
         WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE

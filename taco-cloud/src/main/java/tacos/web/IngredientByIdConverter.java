@@ -6,6 +6,9 @@ import org.springframework.stereotype.Component;
 import tacos.Ingredient;
 import tacos.data.IngredientRepository;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /***
  * TODO: Figure out how this converter is discovered. We haven't explicitly used it yet.
  */
