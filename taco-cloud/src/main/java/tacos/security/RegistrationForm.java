@@ -1,10 +1,12 @@
 package tacos.security;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import tacos.User;
 
 @Data
+@Slf4j
 public class RegistrationForm {
     private String username;
     private String password;
@@ -16,6 +18,7 @@ public class RegistrationForm {
     private String phone;
 
     public User toUser(PasswordEncoder passwordEncoder) {
+        log.info("Converting to user, username: {} password: {}", username, password);
         return new User(username, passwordEncoder.encode(password), fullname, street, city, state, zip, phone);
     }
 }
