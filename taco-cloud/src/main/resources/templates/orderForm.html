@@ -4,6 +4,7 @@
     <head>
         <title>Taco Cloud</title>
         <link rel="stylesheet" th:href="@{/styles/orderForm.css}"/>
+        <link rel="stylesheet" th:href="@{/styles/styles.css}"/>
     </head>
 
     <body>
@@ -106,5 +107,11 @@
 
             <input type="submit" value="Submit Order"/>
         </form>
+
+        <div class="logout-btn">
+            <form method="POST" th:action="@{/logout}">
+                <input type="submit" value="Logout"/>
+            </form>
+        </div>
     </body>
 </html>
