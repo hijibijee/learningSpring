@@ -61,6 +61,7 @@ public class DesignTacoController {
         Errors errors,
         @ModelAttribute TacoOrder tacoOrder
     ) {
+        log.info("Started processing taco: {}", taco);
         if (errors.hasErrors()) {
             log.info("Error processing taco: {}", errors);
             return "design";
